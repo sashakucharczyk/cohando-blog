@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/kucharcz/collaboration-mvp/public/blog/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH

@@ -16,8 +16,8 @@ is modified and no rewrite rule changes.
 
 1. cPanel > Git Version Control > Create: clone this repo to
    `/home/kucharcz/repositories/cohando-blog`.
-   The repo is private: add the SSH deploy key cPanel generates to GitHub
-   (repo Settings > Deploy keys - needs the repo owner).
+   The repo is public, so cPanel clones it over HTTPS; no deploy key
+   needed.
 2. This repo's `.cpanel.yml` copies `dist/` into the docroot on every
    deploy.
 

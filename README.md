@@ -6,6 +6,12 @@ Markdown posts in `posts/`, one file per post, named `YYYY-MM-DD-slug.md`.
 A tiny dependency-free Node build script (`build.mjs`) renders them to plain
 HTML in `dist/` using `template.html` and `style.css`.
 
+## Before a post is a post
+
+- `ideas/` — pitches and campaign ideas being considered.
+- `drafts/` — working packages being prepared and reviewed. Nothing in
+  `ideas/` or `drafts/` is built or deployed; only `posts/` ships.
+
 ## Build
 
     node build.mjs

@@ -18,8 +18,9 @@ function inline(s) {
 function md(src) {
   const lines = src.split('\n');
   const out = [];
-  let i = 0, list = null, quote = null;
+  let i = 0, list = null, quote = null, para = [];
   const closeLists = () => {
+    if (para.length) { out.push(`<p>${inline(para.join(' '))}</p>`); para = []; }
     if (list) { out.push(`</${list}>`); list = null; }
     if (quote) { out.push('</blockquote>'); quote = null; }
   };
@@ -47,8 +48,8 @@ function md(src) {
       out.push(`<li>${inline(li[1])}</li>`); i++; continue;
     }
     if (line.trim() === '') { closeLists(); i++; continue; }
-    closeLists();
-    out.push(`<p>${inline(line)}</p>`); i++;
+    if (list || quote) closeLists();
+    para.push(line.trim()); i++;
   }
   closeLists();
   return out.join('\n');
